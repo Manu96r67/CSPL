@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CSPL</title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+    	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Phoenixcoded" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+   
+    <!-- vendor css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    
+
+</head>
+<body class="">
+	<!-- [ Pre-loader ] start -->
+	<div class="loader-bg">
+		<div class="loader-track">
+			<div class="loader-fill"></div>
+		</div>
+	</div>
+    <nav class="pcoded-navbar theme-horizontal menu-light brand-blue">
+        <div class="navbar-wrapper container">
+            <div class="navbar-content sidenav-horizontal" id="layout-sidenav">
+                <ul class="nav pcoded-inner-navbar sidenav-inner">
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Navigation</label>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">User Mangement</span></a>
+                        
+                        <ul class="pcoded-submenu">
+                            <li><a href="{{ url_for('role') }}" >Add Role</a></li>
+                            <li><a href="{{ url_for('department') }}" >Add Department</a></li>
+                            <li><a href="{{ url_for('user') }}" >Add User</a></li>
+                            <li><a href="{{ url_for('useracess') }}">User Access Control</a></li>
+                        </ul>
+                    </li>
+                     
+                     <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">compliance mangement</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a  href="{{ url_for('index_page') }}" >Add statutory</a></li>
+                            <li><a href="{{ url_for('compliance_form') }}" >Add compliance </a></li>
+                            <!-- <li><a href="{{ url_for('some_page') }}" >Add compliance details</a></li> -->
+                        </ul>
+                    </li>
+                   
+                    <li class="nav-item">
+                        <a href="{{ url_for('question') }}" class="nav-link">
+                            <i class="fas fa-question-circle"></i>
+                            <span class="pcoded-mtext">Question & Answer</span>
+                        </a>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu" >
+                        <a href="">
+                            <span class="pcoded-micon"><i class="feather icon-align-justify"></i></span>
+                            Infrastructure Management
+                        </a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="{{ url_for('indexPage') }}" >Add Infrastructure Details</a></li>
+                            <li><a href="{{ url_for('view_infrastructure') }}" >View Infrastructure</a></li>
+                            <!-- <li><a href="}" >All Reports</a></li> -->
+                        </ul>
+    
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+	
+	<header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">
+		
+			
+				<div class="m-header">
+					<a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+					<a href="#!" class="b-brand">
+						<!-- ========   change your logo hear   ============ -->
+						<img src="../static/images/logo2.svg" alt="" class="logo">
+						<img src="../static/images/logo-icon.png" alt="" class="logo-thumb">
+					</a>
+					<a href="#!" class="mob-toggler">
+						<i class="feather icon-more-vertical"></i>
+					</a>
+				</div>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                       
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        
+                        <li>
+                            <div class="dropdown drp-user">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="feather icon-user"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right profile-notification">
+                                    <div class="pro-head">
+                                        <!-- <img src="static/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image"> -->
+                                        <span>ABC</span>
+                                        <a href="{{ url_for('index') }}" class="dud-logout" title="Logout">
+                                            <i class="feather icon-log-out"></i>
+                                        </a>
+                                    </div>
+                                    <!-- <ul class="pro-body">
+                                        <li><a href="user-profile.html" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
+                                        <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
+                                        <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li>
+                                    </ul> -->
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+	</header>
+	<!-- [ Header ] end -->
+	
+	
+
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+               
+            </div>
+        </div>
+        
+       
+            <!-- [ form-element ] start -->
+           
+             <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Compliance Mangement</h5>
+                    </div>
+                    <div class="card-body">
+                        <!-- <h5>Form controls</h5> -->
+                        <!-- <hr> -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <form action="{{ url_for('add_or_edit_compliance') }}" method="POST" id="complianceForm" class="needs-validation" novalidate>
+                                    <!-- Hidden field to store compliance ID when editing -->
+                                    <input type="hidden" id="complianceId" name="compliance_id">
+                                    
+                                    <div class="form-group">
+                                        <label for="validationControlSelect1">Select Statutory</label>
+                                        <select class="form-control" id="validationControlSelect1" name="statutory_id" required>
+                                            <option value="">Select option</option>
+                                            {% for statutory in statutory_list %}
+                                                <option value="{{ statutory.id }}">{{ statutory.statutory_name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                        <div class="invalid-feedback">Please select a Statutory</div>
+                                    </div>
+                        
+                                    <div class="form-group">
+                                        <label for="validationcompliance">Add Compliance</label>
+                                        <input type="text" class="form-control" id="validationcompliance" name="compliance" placeholder="Compliance" required>
+                                        <div class="invalid-feedback">Please provide a valid Compliance</div>
+                                    </div>
+                        
+                                    <button type="submit" class="btn btn-primary" id="formSubmitButton">Submit</button>
+                                    <button type="reset" class="btn btn-secondary">Cancel</button>
+                                </form>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+             </div>
+             <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Compliance Details</h5>
+                        <form action="{{ url_for('search') }}" method="get" style="display: inline-block; float: right;">
+                            <input type="text" id="searchInput" name="q" placeholder="Search..." class="form-control" style="width: 200px;">
+                            <input type="hidden" name="template" value="complianceform"> <!-- Specify template -->
+                        </form>
+                        
+                        <!-- <span class="d-block m-t-5">use class <code>table-striped</code> inside table element</span> -->
+                    </div>
+                    
+                    <div class="card-body table-border-style">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <!-- <th>id</th> -->
+                                        <th>Statutory</th>
+                                        <th>compliance details</th>
+                                        <th>action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for compliance in compliance_list1 %}
+                                    <tr class="searchable-row">
+                                        <!-- <td>{{ compliance.id }}</td> -->
+                                        <td>{{ compliance.statutory_relation.statutory_name }}</td>
+                                        <td>{{ compliance.description }}</td>
+                                       
+                                        
+                                        <td>
+                                            <a href="#?" class="edit" data-toggle="modal" onclick="openEditComplianceModal('{{ compliance.id }}', '{{ compliance.statutory_relation.statutory_name }}', '{{ compliance.description }}')">
+                                                <i class="material-icons" data-toggle="tooltip" title="Edit" style="color:#FFC107;">&#xE254;</i>
+                                            </a>
+                                            
+                                        <a href="#deleteComplianceModal" class="delete" data-toggle="modal" onclick="prepareDelete('{{ compliance.id }}')">
+                                            <i class="material-icons" data-toggle="tooltip" title="Delete" style="color: #E34724;">&#xE872;</i>
+                                        </a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                
+                            </table>
+                            <div id="pagination" class="d-flex justify-content-end mt-3">
+                                <ul class="pagination">
+                                    <li class="page-item {{ 'disabled' if not compliance_list1.has_prev else '' }}">
+                                        <a class="page-link" href="{{ url_for('compliance_form', page=compliance_list1.prev_num) }}" aria-label="Previous">&laquo;</a>
+                                    </li>
+                                    <!-- Generate page number buttons -->
+                                    {% for page_num in range(1, compliance_list1.pages + 1) %}
+                                    <li class="page-item {{ 'active' if page_num == compliance_list1.page else '' }}">
+                                        <a class="page-link" href="{{ url_for('compliance_form', page=page_num) }}">{{ page_num }}</a>
+                                    </li>
+                                    {% endfor %}
+                                    <li class="page-item {{ 'disabled' if not compliance_list1.has_next else '' }}">
+                                        <a class="page-link" href="{{ url_for('compliance_form', page=compliance_list1.next_num) }}" aria-label="Next">&raquo;</a>
+                                    </li>
+                                </ul>  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="deleteComplianceModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form id="deleteComplianceForm" method="POST">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Delete Compliance</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to delete this compliance record?</p>
+                                <p class="text-warning"><small>This action cannot be undone.</small></p>
+                            </div>
+                            <div class="modal-footer">
+                                <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+                                <input type="submit" class="btn btn-danger" value="Delete">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function openEditComplianceModal(id, statutoryName, complianceDescription) {
+        // Set the form's hidden compliance ID field
+        document.getElementById('complianceId').value = id;
+        
+        // Populate the statutory select field with the corresponding statutory ID
+        let statutorySelect = document.getElementById('validationControlSelect1');
+        for (let i = 0; i < statutorySelect.options.length; i++) {
+            if (statutorySelect.options[i].text === statutoryName) {
+                statutorySelect.selectedIndex = i;
+                break;
+            }
+        }
+    
+        // Set the compliance description input
+        document.getElementById('validationcompliance').value = complianceDescription;
+        
+        // Change the submit button text to "Update"
+        document.getElementById('formSubmitButton').textContent = 'Update';
+    
+        // Scroll to the form
+        document.getElementById('complianceForm').scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    function prepareDelete(index) {
+        debugger;
+        // Set the form action for delete
+        document.getElementById('deleteComplianceForm').action = "/delete_compliance/" + index;
+    }
+</script>
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+<script>
+    document.getElementById('searchInput').addEventListener('input', function () {
+        let filter = this.value.toUpperCase();  // Get the search term
+        let rows = document.querySelectorAll('.searchable-row');  // Rows to filter
+
+        rows.forEach(row => {
+            // Modify this condition based on the data you're searching in each row
+            let text = row.textContent || row.innerText;
+            if (text.toUpperCase().indexOf(filter) > -1) {
+                row.style.display = "";  // Show the row if it matches
+            } else {
+                row.style.display = "none";  // Hide the row if it doesn't match
+            }
+        });
+    });
+</script>
+                            <script src="../static/js/vendor-all.min.js"></script>
+                            <script src="../static/js/plugins/bootstrap.min.js"></script>
+                            <script src="../static/js/ripple.js"></script>
+                            <script src="../static/js/pcoded.min.js"></script>
+                        
+                        
+                        
+                        
+                        </body>
+                        
+                        </html>

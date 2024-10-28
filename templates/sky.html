@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CSPL</title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+    	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Phoenixcoded" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="static/images/favicon.ico" type="image/x-icon">
+
+    <!-- vendor css -->
+    <link rel="stylesheet" href="static/css/style.css">
+    
+    
+
+</head>
+<body class="">
+	<!-- [ Pre-loader ] start -->
+	
+    <nav class="pcoded-navbar theme-horizontal menu-light brand-blue">
+        <div class="navbar-wrapper container">
+            <div class="navbar-content sidenav-horizontal" id="layout-sidenav">
+                <ul class="nav pcoded-inner-navbar sidenav-inner">
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Navigation</label>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">User Mangement</span></a>
+                        
+                        <ul class="pcoded-submenu">
+                            <li><a href="{{ url_for('role') }}" >Add Role</a></li>
+                            <li><a href="{{ url_for('department') }}" >Add Department</a></li>
+                            <li><a href="{{ url_for('user') }}" >Add User</a></li>
+                            <li><a href="{{ url_for('useracess') }}">User Access Control</a></li>
+                        </ul>
+                    </li>
+                     
+                     <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Compliance Mangement</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a  href="{{ url_for('index_page') }}" >Add statutory</a></li>
+                            <li><a href="{{ url_for('compliance_form') }}" >Add compliance </a></li>
+                            <!-- <li><a href="{{ url_for('some_page') }}" >Add compliance details</a></li> -->
+                        </ul>
+                    </li>
+                        
+                    <li class="nav-item">
+    <a href="{{ url_for('question') }}" class="nav-link">
+        <i class="fas fa-question-circle"></i>
+        <span class="pcoded-mtext">Question and Answer</span>
+    </a>
+</li>
+<li class="nav-item pcoded-hasmenu" >
+    <a href="">
+        <span class="pcoded-micon"><i class="feather icon-align-justify"></i></span>
+        Infrastructure Management
+    </a>
+    <ul class="pcoded-submenu">
+        <li><a href="{{ url_for('indexPage') }}" >Add Infrastructure Details</a></li>
+        <li><a href="{{ url_for('view_infrastructure') }}" >View Infrastructure</a></li>
+        <!-- <li><a href="}" >All Reports</a></li> -->
+    </ul>
+
+</li>
+
+                    <!--<li class="nav-item pcoded-menu-caption">
+                        <label>UI Element</label>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-box"></i></span><span class="pcoded-mtext">Basic</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="bc_alert.html">Alert</a></li>
+                            <li><a href="bc_button.html">Button</a></li>
+                            <li><a href="bc_badges.html">Badges</a></li>
+                            <li><a href="bc_breadcrumb-pagination.html">Breadcrumb and paggination</a></li>
+                            <li><a href="bc_card.html">Cards</a></li>
+                            <li><a href="bc_collapse.html">Collapse</a></li>
+                            <li><a href="bc_carousel.html">Carousel</a></li>
+                            <li><a href="bc_grid.html">Grid system</a></li>
+                            <li><a href="bc_progress.html">Progress</a></li>
+                            <li><a href="bc_modal.html">Modal</a></li>
+                            <li><a href="bc_spinner.html">Spinner</a></li>
+                            <li><a href="bc_tabs.html">Tabs and pills</a></li>
+                            <li><a href="bc_typography.html">Typography</a></li>
+                            <li><a href="bc_tooltip-popover.html">Tooltip and popovers</a></li>
+                            <li><a href="bc_toasts.html">Toasts</a></li>
+                            <li><a href="bc_extra.html">Other</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Forms andamp; table</label>
+                    </li>
+                    <li class="nav-item">
+                        <a href="form_elements.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Forms</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="tbl_bootstrap.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">Bootstrap table</span></a>
+                    </li>
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Chart and Maps</label>
+                    </li>
+                    <li class="nav-item">
+                        <a href="chart-apex.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span><span class="pcoded-mtext">Chart</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="map-google.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span class="pcoded-mtext">Maps</span></a>
+                    </li>
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Pages</label>
+                    </li>-->
+                    <!--<li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Authentication</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="auth-signup.html" target="_blank">Sign up</a></li>
+                            <li><a href="auth-signin.html" target="_blank">Sign in</a></li>
+                        </ul>
+                    </li>
+                    <!-- <li class="nav-item"><a href="sample-page.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-sidebar"></i></span><span class="pcoded-mtext">Sample page</span></a></li>  -->
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+	<!-- [ navigation menu ] end -->
+	<!-- [ Header ] start -->
+	<header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">
+		
+			
+				<div class="m-header">
+					<a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+					<a href="#!" class="b-brand">
+						<!-- ========   change your logo hear   ============ -->
+						<img src="static/images/logo2.svg" alt="" class="logo">
+						<img src="static/images/logo-icon.png" alt="" class="logo-thumb">
+					</a>
+					<a href="#!" class="mob-toggler">
+						<i class="feather icon-more-vertical"></i>
+					</a>
+				</div>
+				 <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                       
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        
+                        <li>
+                            <div class="dropdown drp-user">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="feather icon-user"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right profile-notification">
+                                    <div class="pro-head">
+                                        <!-- <img src="static/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image"> -->
+                                        <span>ABC</span>
+                                        <a href="{{ url_for('index') }}" class="dud-logout" title="Logout">
+                                            <i class="feather icon-log-out"></i>
+                                        </a>
+                                    </div>
+                                    <!-- <ul class="pro-body">
+                                        <li><a href="user-profile.html" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
+                                        <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
+                                        <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li>
+                                    </ul> -->
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+			
+	</header>
+	<!-- [ Header ] end -->
+	
+	
+
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10"></h5>
+                        </div>
+                        <ul class="breadcrumb">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <!--<div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Basic Component</h5>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="floating-label" for="Email">COMPLIANCE DETAILS</label>
+                                        <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" value="123">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="floating-label" for="Text">Text</label>
+                                        <input type="text" class="form-control" id="Text" placeholder="123">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="floating-label" for="password">password</label>
+                                        <input type="password" class="form-control" id="password" placeholder="">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- [ form-element ] start -->
+           <div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Add Question</h5>
+        </div>
+        <div class="card-body">
+            <form id="addingquestion" method="POST" action="/submit_question" novalidate> <!-- Change action URL as needed -->
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="Department">Department</label>
+                            <select id="Department" name="Department" class="form-control" required>
+                                <option value="">Select Department</option>
+                                <option value="Electrical">Electrical System</option>
+                                <option value="Mechanical Systems">Mechanical Systems</option>
+                                <option value="Water and Waste System">Water and Waste System</option>
+                                <option value="Fire and Safety">Fire and Safety</option>
+                                <option value="Building Service and Amenities">Building Service and Amenities</option>
+                                <option value="Security Systems">Security Systems</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a department.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="Question">Question</label>
+                            <input type="text" class="form-control" id="Question" name="Question" placeholder="Enter the Question" required aria-label="Question">
+                            <div class="invalid-feedback">
+                                Please enter a question.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label for="answerType">Answer type</label>
+                            <select class="form-control" id="answerType" name="answerType" required>
+                                <option value="" disabled selected>Select Answer Type</option>
+                                <option value="textarea">Text Box</option>
+                                <option value="radio">Yes/No</option>
+                                <option value="number">Number Rating</option>
+                                <option value="starrating">Star Rating</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select an answer type.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Submit Button -->
+                <!-- <div class="col-md-12 text-left"> -->
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="reset" class="btn btn-secondary">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>View Mapping</h5>
+        </div>
+        <div class="card-body table-border-style">
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Department</th>
+                            <th>Question</th>
+                            <th>Answer Type</th>
+                            <th>Actions</th> <!-- Added Actions Column -->
+                        </tr>
+                    </thead>
+                    <tbody id="questionTableBody">
+                        <!-- Rows will be added here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="pagination" class="d-flex justify-content-end mt-3">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#" id="prevPage" aria-label="Previous">&laquo;</a></li>
+                    <!-- Page number buttons will be generated dynamically -->
+                    <li class="page-item"><a class="page-link" href="#" id="nextPage" aria-label="Next">&raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript libraries -->
+<script src="static/js/vendor-all.min.js"></script>
+<script src="static/js/plugins/bootstrap.min.js"></script>
+<script src="static/js/ripple.js"></script>
+<script src="static/js/pcoded.min.js"></script>
+
+    <script>
+        let currentPage = 1;
+        const rowsPerPage = 5;
+        const questionTableBody = document.getElementById('questionTableBody');
+
+        function renderTableRows() {
+            const rows = questionTableBody.getElementsByTagName('tr');
+            const totalRows = rows.length;
+            const totalPages = Math.ceil(totalRows / rowsPerPage);
+
+            // Hide all rows
+            for (let i = 0; i < totalRows; i++) {
+                rows[i].style.display = 'none';
+            }
+
+            // Calculate the start and end row for the current page
+            const start = (currentPage - 1) * rowsPerPage;
+            const end = start + rowsPerPage;
+
+            // Show the rows for the current page
+            for (let i = start; i < end && i < totalRows; i++) {
+                rows[i].style.display = '';
+            }
+
+            // Update pagination controls
+            document.getElementById('prevPage').disabled = currentPage === 1;
+            document.getElementById('nextPage').disabled = currentPage === totalPages;
+
+            // Generate page numbers
+            const pageNumbers = document.getElementById('pageNumbers');
+            pageNumbers.innerHTML = '';
+
+            for (let i = 1; i <= totalPages; i++) {
+                const button = document.createElement('button');
+                button.innerText = i;
+                button.classList.add('page-button');
+                button.onclick = function () {
+                    currentPage = i;
+                    renderTableRows();
+                };
+                pageNumbers.appendChild(button);
+            }
+        }
+
+        function addRow(department, question, answerType) {
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${department}</td>
+                <td>${question}</td>
+                <td>${answerType}</td>
+                <td>
+                    <span class="edit-icon" style="color:#FFC107; cursor: pointer; margin-right: 10px;" title="Edit">
+    <i class="fas fa-pencil-alt" style="font-size: 20px;"></i> <!-- Increase icon size -->
+</span>
+<span class="delete-icon" style="cursor: pointer; color: red;" title="Delete">
+    <i class="fas fa-trash" style="font-size: 20px;"></i> <!-- Increase icon size -->
+</span>
+                    </span>
+                </td>
+            `;
+
+            newRow.querySelector('.edit-icon').onclick = function () {
+                editRow(newRow);
+            };
+            newRow.querySelector('.delete-icon').onclick = function () {
+                deleteRow(newRow);
+            };
+
+            questionTableBody.insertAdjacentElement('afterbegin', newRow);
+            saveToLocalStorage();
+            renderTableRows();
+        }
+
+        function deleteRow(row) {
+            questionTableBody.removeChild(row);
+            saveToLocalStorage();
+            renderTableRows();
+        }
+
+        function editRow(row) {
+    const departmentCell = row.cells[0];
+    const questionCell = row.cells[1];
+    const answerTypeCell = row.cells[2];
+
+    // Create select elements for department and answer type
+    const departmentInput = document.createElement('select');
+    const answerTypeInput = document.createElement('select');
+
+    // Sample options for department (add your actual options)
+    const departments = ["Electrical", "Mechanical Systems", "Water & Waste System", "Fire & Safety", "Building Service & Amenities", "Security Systems"];
+    departments.forEach(dept => {
+        const option = document.createElement('option');
+        option.value = dept;
+        option.textContent = dept;
+        if (dept === departmentCell.innerText) {
+            option.selected = true; // Select the current department
+        }
+        departmentInput.appendChild(option);
+    });
+
+    // Sample options for answer type (add your actual options)
+    const answerTypes = ["textarea", "radio", "number", "starrating"];
+    answerTypes.forEach(type => {
+        const option = document.createElement('option');
+        option.value = type;
+        option.textContent = type;
+        if (type === answerTypeCell.innerText) {
+            option.selected = true; // Select the current answer type
+        }
+        answerTypeInput.appendChild(option);
+    });
+
+    // Create an input for the question
+    const questionInput = document.createElement('input');
+    questionInput.value = questionCell.innerText;
+
+    // Replace cells with inputs
+    departmentCell.innerHTML = '';
+    departmentCell.appendChild(departmentInput);
+    questionCell.innerHTML = '';
+    questionCell.appendChild(questionInput);
+    answerTypeCell.innerHTML = '';
+    answerTypeCell.appendChild(answerTypeInput);
+
+    const editIcon = row.querySelector('.edit-icon');
+    editIcon.innerHTML = '<i class="fas fa-save fa-lg"></i>';
+    editIcon.onclick = function () {
+        departmentCell.innerText = departmentInput.value;
+        questionCell.innerText = questionInput.value;
+        answerTypeCell.innerText = answerTypeInput.value;
+
+        editIcon.innerHTML = '<i class="fas fa-pencil-alt fa-lg"></i>';
+        editIcon.onclick = function () {
+            editRow(row);
+        };
+        saveToLocalStorage();
+        renderTableRows();
+    };
+}
+
+
+        function saveToLocalStorage() {
+            const rows = questionTableBody.getElementsByTagName('tr');
+            const data = [];
+
+            for (let row of rows) {
+                const cells = row.getElementsByTagName('td');
+                const department = cells[0].innerText;
+                const question = cells[1].innerText;
+                const answerType = cells[2].innerText;
+
+                data.push({ department, question, answerType });
+            }
+
+            localStorage.setItem('questions', JSON.stringify(data));
+        }
+
+        function loadFromLocalStorage() {
+            const data = JSON.parse(localStorage.getItem('questions')) || [];
+
+            for (const item of data) {
+                addRow(item.department, item.question, item.answerType);
+            }
+        }
+
+        document.getElementById('addingquestion').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const department = document.getElementById('Department').value.trim();
+    const question = document.getElementById('Question').value.trim();
+    const answerType = document.getElementById('answerType').value;
+
+    let isValid = true;
+
+    // Validation
+    if (department === "") {
+        isValid = false;
+        document.getElementById('Department').classList.add('is-invalid');
+    } else {
+        document.getElementById('Department').classList.remove('is-invalid');
+    }
+
+    if (question === "") {
+        isValid = false;
+        document.getElementById('Question').classList.add('is-invalid');
+    } else {
+        document.getElementById('Question').classList.remove('is-invalid');
+    }
+
+    if (answerType === "") {
+        isValid = false;
+        document.getElementById('answerType').classList.add('is-invalid');
+    } else {
+        document.getElementById('answerType').classList.remove('is-invalid');
+    }
+
+    if (!isValid) {
+        return; // Prevent form submission if invalid
+    }
+
+    // Add the row if valid
+    addRow(department, question, answerType);
+    this.reset();
+});
+
+// Reset validation state on input change
+document.getElementById('Department').addEventListener('input', function() {
+    this.classList.remove('is-invalid');
+});
+
+document.getElementById('Question').addEventListener('input', function() {
+    this.classList.remove('is-invalid');
+});
+
+document.getElementById('answerType').addEventListener('input', function() {
+    this.classList.remove('is-invalid');
+});
+
+
+        document.getElementById('prevPage').onclick = function () {
+            if (currentPage > 1) {
+                currentPage--;
+                renderTableRows();
+            }
+        };
+
+        document.getElementById('nextPage').onclick = function () {
+            const totalRows = questionTableBody.getElementsByTagName('tr').length;
+            const totalPages = Math.ceil(totalRows / rowsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                renderTableRows();
+            }
+        };
+
+        loadFromLocalStorage();
+        renderTableRows();
+    </script>
+  
+                        </body>
+                        
+                        </html>

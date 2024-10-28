@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CSPL</title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+    	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Phoenixcoded" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="static/images/favicon.ico" type="image/x-icon">
+
+    <!-- vendor css -->
+    <link rel="stylesheet" href="static/css/style.css">
+    
+    
+
+</head>
+<body class="">
+	<!-- [ Pre-loader ] start -->
+	
+    <nav class="pcoded-navbar theme-horizontal menu-light brand-blue">
+        <div class="navbar-wrapper container">
+            <div class="navbar-content sidenav-horizontal" id="layout-sidenav">
+                <ul class="nav pcoded-inner-navbar sidenav-inner">
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Navigation</label>
+                    </li>
+                     <li class="nav-item">
+                        
+                    </li>
+                     <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">compliance mangement</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="{{ url_for('index') }}" >Add statutory</a></li>
+                            <li><a href="{{ url_for('compliance_form') }}" >Add compliance </a></li>
+                            <li><a href="{{ url_for('some_page') }}" >Add compliance details</a></li>
+                        </ul>
+                    </li>
+                   
+                    
+            </div>
+        </div>
+    </nav>
+	
+	<!-- [ Header ] start -->
+	<header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">
+		
+			
+				<div class="m-header">
+					<a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+					<a href="#!" class="b-brand">
+						<!-- ========   change your logo hear   ============ -->
+						<img src="static/images/logo2.svg" alt="" class="logo">
+						<img src="static/images/logo-icon.png" alt="" class="logo-thumb">
+					</a>
+					<a href="#!" class="mob-toggler">
+						<i class="feather icon-more-vertical"></i>
+					</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item">
+							<div class="search-bar">
+								<input type="text" class="form-control border-0 shadow-none" placeholder="Search hear">
+								<button type="button" class="close" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+						</li>
+					</ul>
+					<ul class="navbar-nav ml-auto">
+						<li>
+							<div class="dropdown">
+								
+								<div class="dropdown-menu dropdown-menu-right notification">
+									
+						<!-- <li>
+							<div class="dropdown drp-user">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<i class="feather icon-user"></i>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right profile-notification">
+									<div class="pro-head">
+										<img src="assets/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+										<span>John Doe</span>
+										<a href="auth-signin.html" class="dud-logout" title="Logout">
+											<i class="feather icon-log-out"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+						</li> -->
+					</ul>
+				</div>
+				
+			
+	</header>
+	<!-- [ Header ] end -->
+	
+	
+
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <!-- <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10"></h5>
+                        </div>
+                        <ul class="breadcrumb">
+                        </ul>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <!-- <div class="row"> -->
+            
+            <!-- [ form-element ] start -->
+            <div class="col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Add Compliance Details</h5>
+        </div>
+        <div class="card-body">
+            <hr>
+            <form class="needs-validation" novalidate onsubmit="addRow(event)">
+                <div class="row">
+                    <!-- Row 1: Regulatory Name and Compliance Details -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="regulatoryBody">Regulatory Name</label>
+                            <select class="form-control" id="regulatoryBody" required>
+                                <option value="">Select a regulatory body</option>
+                                <option value="body1">Regulatory Body 1</option>
+                                <option value="body2">Regulatory Body 2</option>
+                                <option value="body3">Regulatory Body 3</option>
+                            </select>
+                            <div class="invalid-feedback">Please select a regulatory body.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="complianceDetails">Compliance Details</label>
+                            <select class="form-control" id="complianceDetails" required>
+                                <option value="" disabled selected>Select compliance details</option>
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                            </select>
+                            <div class="invalid-feedback">Please select compliance details.</div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Frequency and Document Reference Number -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="frequency">Frequency</label>
+                            <select class="form-control" id="frequency" required>
+                                <option value="">Select frequency</option>
+                                <option value="daily">Daily</option>
+                                <option value="weekly">Weekly</option>
+                                <option value="monthly">Monthly</option>
+                                <option value="yearly">Yearly</option>
+                            </select>
+                            <div class="invalid-feedback">Please select a frequency.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="documentRefNumber">Document Reference Number</label>
+                            <input type="text" class="form-control" id="documentRefNumber" placeholder="Enter document reference number" required>
+                            <div class="invalid-feedback">Please enter a document reference number.</div>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Valid From and Valid Upto -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="validFrom">Valid From</label>
+                            <input type="date" class="form-control" id="validFrom" name="validFrom" required>
+                            <div class="invalid-feedback">Please select a start date.</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="validUpto">Valid Upto</label>
+                            <input type="date" class="form-control" id="validUpto" required>
+                            <div class="invalid-feedback">Please select an expiry date.</div>
+                        </div>
+                    </div>
+
+                    <!-- Row 4: Documents -->
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="remarksInput">Documents</label>
+                            <input type="file" class="form-control" id="remarksInput" placeholder="Enter remarks" required>
+                            <div class="invalid-feedback">Please upload your documents.</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <div class="col-md-12 text-left">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-secondary">Cancel</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-xl-12">
+    <div class="card">
+        <div class="card-header">
+            <h5>Compliance Details</h5>
+            <!-- Search Box -->
+            <input type="text" id="searchInput" placeholder="Search..." class="form-control" style="width: 200px; display: inline-block; float: right; margin-left: 10px;">
+            
+            <!-- Regulatory Body Filter Dropdown -->
+            <select id="regulatoryFilter" class="form-control" style="width: 200px; display: inline-block; float: right;">
+                <option value="">All Regulatory Bodies</option>
+                <option value="body1">Regulatory Body 1</option>
+                <option value="body2">Regulatory Body 2</option>
+                <option value="body3">Regulatory Body 3</option>
+            </select>
+        </div>
+        <div class="card-body table-border-style">
+            <div class="table-responsive">
+                <table class="table table-striped" id="complianceTable">
+                    <thead>
+                        <tr>
+                            <th>Regulatory Name</th>
+                            <th>Compliance details</th>
+                            <th>Frequency</th>
+                            <th>Document Reference Number</th>
+                            <th>Valid From</th>
+                            <th>Valid Upto</th>
+                            <!-- <th>Documents</th> -->
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rows will be added here dynamically -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="pagination" class="d-flex justify-content-end mt-3">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#" id="prevPage" aria-label="Previous">&laquo;</a></li>
+                    <!-- Page number buttons will be generated dynamically -->
+                    <li class="page-item"><a class="page-link" href="#" id="nextPage" aria-label="Next">&raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="static/js/vendor-all.min.js"></script>
+<script src="static/js/plugins/bootstrap.min.js"></script>
+<script src="static/js/ripple.js"></script>
+<script src="static/js/pcoded.min.js"></script>
+
+<script>
+let currentPage = 1;
+const rowsPerPage = 5;
+let complianceData = [];
+
+function renderTable() {
+    const tableBody = document.querySelector('#complianceTable tbody');
+    tableBody.innerHTML = '';
+    const filteredData = filterData();
+
+    const startIndex = (currentPage - 1) * rowsPerPage;
+    const endIndex = startIndex + rowsPerPage;
+    const paginatedData = filteredData.slice(startIndex, endIndex);
+
+    paginatedData.forEach(data => {
+        const newRow = tableBody.insertRow();
+        newRow.innerHTML = `
+            <td>${data.regulatoryBody}</td>
+            <td>${data.complianceDetails}</td>
+            <td>${data.frequency}</td>
+            <td>${data.documentRefNumber}</td>
+            <td>${data.validFrom}</td>
+            <td>${data.validUpto}</td>
+            <td>${data.remarks}</td>
+            <td>
+                <button class="btn btn-primary btn-sm">Edit</button>
+                <button class="btn btn-danger btn-sm">Delete</button>
+            </td>
+        `;
+    });
+
+    updatePagination(filteredData.length);
+}
+
+function updatePagination(totalItems) {
+    const totalPages = Math.ceil(totalItems / rowsPerPage);
+    const paginationContainer = document.querySelector('.pagination');
+    paginationContainer.innerHTML = `
+        <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+            <a class="page-link" href="#" id="prevPage">&laquo;</a>
+        </li>
+    `;
+
+    for (let i = 1; i <= totalPages; i++) {
+        paginationContainer.innerHTML += `
+            <li class="page-item ${i === currentPage ? 'active' : ''}">
+                <a class="page-link" href="#" data-page="${i}">${i}</a>
+            </li>
+        `;
+    }
+
+    paginationContainer.innerHTML += `
+        <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+            <a class="page-link" href="#" id="nextPage">&raquo;</a>
+        </li>
+    `;
+}
+
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('page-link')) {
+        event.preventDefault();
+        const page = event.target.getAttribute('data-page');
+        if (page) {
+            currentPage = parseInt(page);
+            renderTable();
+        }
+    }
+    if (event.target.id === 'prevPage' && currentPage > 1) {
+        currentPage--;
+        renderTable();
+    }
+    if (event.target.id === 'nextPage') {
+        const filteredData = filterData();
+        const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+        if (currentPage < totalPages) {
+            currentPage++;
+            renderTable();
+        }
+    }
+});
+
+function filterData() {
+    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+    const selectedBody = document.getElementById('regulatoryFilter').value;
+
+    return complianceData.filter(item => {
+        const matchesSearch = [
+            item.regulatoryBody,
+            item.complianceDetails,
+            item.frequency,
+            item.documentRefNumber,
+            item.validFrom,
+            item.validUpto,
+            item.remarks
+        ].some(field => field && field.toLowerCase().includes(searchInput));
+
+        const matchesFilter = selectedBody === "" || item.regulatoryBody === selectedBody;
+
+        return matchesSearch && matchesFilter;
+    });
+}
+
+function loadFromLocalStorage() {
+    complianceData = JSON.parse(localStorage.getItem('complianceData')) || [];
+    renderTable();
+}
+
+function addRow(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Gather data from the form inputs
+    const regulatoryBody = document.getElementById('regulatoryBody').value.trim();
+    const complianceDetails = document.getElementById('complianceDetails').value.trim();
+    const frequency = document.getElementById('frequency').value.trim();
+    const documentRefNumber = document.getElementById('documentRefNumber').value.trim();
+    const validFrom = document.getElementById('validFrom').value.trim();
+    const validUpto = document.getElementById('validUpto').value.trim();
+    const remarks = document.getElementById('remarksInput').files[0]?.name || "No file uploaded"; // Get the file name or a default message
+
+    // Validate to prevent adding empty rows
+    if (!regulatoryBody || !complianceDetails || !frequency || !documentRefNumber || !validFrom || !validUpto) {
+        
+        return; // Exit the function if validation fails
+    }
+
+    // Create a new compliance data object
+    const newData = {
+        regulatoryBody,
+        complianceDetails,
+        frequency,
+        documentRefNumber,
+        validFrom,
+        validUpto,
+        remarks
+    };
+
+    // Add new data to the complianceData array
+    complianceData.push(newData);
+
+    // Save the updated complianceData to localStorage (optional)
+    localStorage.setItem('complianceData', JSON.stringify(complianceData));
+
+    // Clear the form inputs after submission
+    document.querySelector('form').reset();
+
+    // Render the updated table
+    renderTable();
+}
+
+
+document.getElementById('searchInput').addEventListener('input', renderTable);
+document.getElementById('regulatoryFilter').addEventListener('change', renderTable);
+window.onload = loadFromLocalStorage;
+
+</script>
+
+<script>
+    // Example JavaScript for Bootstrap validation
+    (function () {
+        'use strict'
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get today's date in YYYY-MM-DD format
+        const today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+        const yyyy = today.getFullYear();
+
+        const todayStr = yyyy + '-' + mm + '-' + dd;
+
+        // Set the min attribute for validFrom
+        const validFromInput = document.getElementById('validFrom');
+        validFromInput.setAttribute('min', todayStr);
+
+        // Set the min attribute for validUpto
+        const validUptoInput = document.getElementById('validUpto');
+        validUptoInput.setAttribute('min', todayStr);
+
+        // Update validUpto based on validFrom selection
+        validFromInput.addEventListener('change', function() {
+            const validFromDate = this.value;
+            validUptoInput.setAttribute('min', validFromDate);
+        });
+    });
+</script>
+
+                    
+                            <script>
+    // Example JavaScript for Bootstrap validation
+    (function () {
+        'use strict'
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get today's date in YYYY-MM-DD format
+        const today = new Date();
+        const dd = String(today.getDate()).padStart(2, '0');
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+        const yyyy = today.getFullYear();
+
+        const todayStr = yyyy + '-' + mm + '-' + dd;
+
+        // Set the min attribute for validFrom
+        const validFromInput = document.getElementById('validFrom');
+        validFromInput.setAttribute('min', todayStr);
+
+        // Set the min attribute for validUpto
+        const validUptoInput = document.getElementById('validUpto');
+        validUptoInput.setAttribute('min', todayStr);
+
+        // Update validUpto based on validFrom selection
+        validFromInput.addEventListener('change', function() {
+            const validFromDate = this.value;
+            validUptoInput.setAttribute('min', validFromDate);
+        });
+    });
+</script>
+
+                        
+                        
+                        
+                        </body>
+                        
+                        </html>

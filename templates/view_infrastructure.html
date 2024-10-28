@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CSPL</title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+    	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Phoenixcoded" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- vendor css -->
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .imp{
+            color: red;
+        }
+        .error {
+            color: red;
+        }
+        .editable-column {
+        cursor: text;
+        border-bottom: 1px dashed #ccc; /* Indicate it's editable */
+        }
+        .editable-column:focus {
+            border-bottom: 1px solid #007bff; /* Highlight when editing */
+            outline: none;
+        }
+        .edit-btn{
+            color: #FFC107 !important;
+            text-decoration: none;
+        }
+        .delete-btn{
+            color: #E34724 !important;
+        }
+    </style>
+
+    
+    
+
+</head>
+<body class="">
+	<!-- [ Pre-loader ] start -->
+	<div class="loader-bg">
+		<div class="loader-track">
+			<div class="loader-fill"></div>
+		</div>
+	</div>
+    <nav class="pcoded-navbar theme-horizontal menu-light brand-blue">
+        <div class="navbar-wrapper container">
+            <div class="navbar-content sidenav-horizontal" id="layout-sidenav">
+                <ul class="nav pcoded-inner-navbar sidenav-inner">
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Navigation</label>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">User Mangement</span></a>
+                        
+                        <ul class="pcoded-submenu">
+                            <li><a href="{{ url_for('role') }}" >Add Role</a></li>
+                            <li><a href="{{ url_for('department') }}" >Add Department</a></li>
+                            <li><a href="{{ url_for('user') }}" >Add User</a></li>
+                            <li><a href="{{ url_for('useracess') }}">User Access Control</a></li>
+                        </ul>
+                    </li>
+                     
+                     <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Compliance Mangement</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a  href="{{ url_for('index_page') }}" >Add statutory</a></li>
+                            <li><a href="{{ url_for('compliance_form') }}" >Add compliance </a></li>
+                            <!-- <li><a href="{{ url_for('some_page') }}" >Add compliance details</a></li> -->
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('question') }}" class="nav-link">
+                            <i class="fas fa-question-circle"></i>
+                            <span class="pcoded-mtext">Question & Answer</span>
+                        </a>
+                    </li>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu" >
+                        <a href="">
+                            <span class="pcoded-micon"><i class="feather icon-align-justify"></i></span>
+                            Infrastructure Management
+                        </a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="{{ url_for('indexPage') }}" >Add Infrastructure Details</a></li>
+                            <li><a href="{{ url_for('view_infrastructure') }}" >View Infrastructure</a></li>
+                            <!-- <li><a href="}" >All Reports</a></li> -->
+                        </ul>
+    
+                    </li> 
+                    <!-- <li class="nav-item"><a href="sample-page.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-sidebar"></i></span><span class="pcoded-mtext">Sample page</span></a></li>  -->
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+	<header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">
+        <div class="m-header">
+            <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+            <a href="#!" class="b-brand">
+                <!-- ========   change your logo hear   ============ -->
+                <img src="static/images/logo2.svg" alt="" class="logo">
+                <img src="static/images/logo-icon.png" alt="" class="logo-thumb">
+            </a>
+            <a href="#!" class="mob-toggler">
+                <i class="feather icon-more-vertical"></i>
+            </a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+               
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                
+                <li>
+                    <div class="dropdown drp-user">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="feather icon-user"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-notification">
+                            <div class="pro-head">
+                                <span>ABC</span>
+                                <a href="{{ url_for('index') }}" class="dud-logout" title="Logout">
+                                    <i class="feather icon-log-out"></i>
+                                </a>
+                            </div>
+                            <!-- <ul class="pro-body">
+                                <li><a href="user-profile.html" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
+                                <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
+                                <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li>
+                            </ul> -->
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+	</header>
+	<!-- [ Header ] end -->
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+         <div class="page-header">
+            <div class="page-block">
+
+            </div>
+         </div>
+        <div class="row">
+            <!-- <div class="col-sm-12"> -->
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>View Infrastructure Table</h5>
+                        <span class="d-block m-t-5"></span>
+                        <a href="{{url_for("indexPage")}}" class="btn btn-shadow btn-primary">Add Infrastructure</a>
+                    </div>
+                    <div class="card-body table-border-style">
+                        <div class="table-responsive tablesContainer">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr id="header">
+                                        <!-- <th>#</th> -->
+                                        <th>Department</th>
+                                        <th>Screen Name</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody">
+                                </tbody>
+                            </table>
+                            <div id="pagination" class="d-flex justify-content-end mt-3">
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="#" id="prevPage" aria-label="Previous">&laquo;</a></li>
+                                    <!-- Page number buttons will be generated dynamically -->
+                                    <li class="page-item"><a class="page-link" href="#" id="nextPage" aria-label="Next">&raquo;</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        
+        <!-- <script src="assets/js/vendor-all.min.js"></script>
+        <script src="assets/js/plugins/bootstrap.min.js"></script>
+        <script src="assets/js/ripple.js"></script>
+        <script src="assets/js/pcoded.min.js"></script> -->
+        <!-- <script src="assets/js/due_deligence.js"></script>   -->
+    <script src="{{ url_for('static', filename='js/vendor-all.min.js') }}" ></script>
+    <script src="{{ url_for('static', filename='js/plugins/bootstrap.min.js') }}" ></script>
+    <script src="{{ url_for('static', filename='js/ripple.js') }}" ></script>
+    <script src="{{ url_for('static', filename='js/pcoded.min.js') }}" ></script>
+    <script src="{{ url_for('static', filename='js/due_deligence.js') }}" ></script>
+    <script src="{{ url_for('static', filename='js/rev_due.js') }}" ></script>
+
+    </body>
+                    
+</html>

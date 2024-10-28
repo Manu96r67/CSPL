@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CSPL</title>
+    <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 11]>
+    	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+    <!-- Meta -->
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="">
+    <meta name="author" content="Phoenixcoded" />
+    <!-- Favicon icon -->
+    <link rel="icon" href="../static/images/favicon.ico" type="image/x-icon">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+   
+    <!-- vendor css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+    
+
+</head>
+<body class="">
+	<!-- [ Pre-loader ] start -->
+	<div class="loader-bg">
+		<div class="loader-track">
+			<div class="loader-fill"></div>
+		</div>
+	</div>
+    <nav class="pcoded-navbar theme-horizontal menu-light brand-blue">
+        <div class="navbar-wrapper container">
+            <div class="navbar-content sidenav-horizontal" id="layout-sidenav">
+                <ul class="nav pcoded-inner-navbar sidenav-inner">
+                    <li class="nav-item pcoded-menu-caption">
+                        <label>Navigation</label>
+                    </li>
+                     
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="#" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">User Mangement</span></a>
+                        
+                        <ul class="pcoded-submenu">
+                            
+                            <li><a href="{{ url_for('role') }}" >Add Role</a></li>
+                            <li><a href="{{ url_for('department') }}" >Add Department</a></li>
+                            <li><a href="{{ url_for('user') }}" >Add User</a></li>
+                            <li><a href="{{ url_for('useracess') }}">User Access Control</a></li>
+                        </ul>
+                    </li>
+                     
+                     <li class="nav-item pcoded-hasmenu">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layout"></i></span><span class="pcoded-mtext">Compliance Mangement</span></a>
+                        <ul class="pcoded-submenu">
+                            <li><a  href="{{ url_for('index_page') }}" >Add statutory</a></li>
+                            <li><a href="{{ url_for('compliance_form') }}" >Add compliance </a></li>
+                            <!-- <li><a href="{{ url_for('some_page') }}" >Add compliance details</a></li> -->
+                        </ul>
+                    </li>
+                   
+                    <li class="nav-item">
+                        <a href="{{ url_for('question') }}" class="nav-link">
+                            <i class="fas fa-question-circle"></i>
+                            <span class="pcoded-mtext">Question & Answer</span>
+                        </a>
+                    </li>
+                    <li class="nav-item pcoded-hasmenu" >
+                        <a href="">
+                            <span class="pcoded-micon"><i class="feather icon-align-justify"></i></span>
+                            Infrastructure Management
+                        </a>
+                        <ul class="pcoded-submenu">
+                            <li><a href="{{ url_for('indexPage') }}" >Add Infrastructure Details</a></li>
+                            <li><a href="{{ url_for('view_infrastructure') }}" >View Infrastructure</a></li>
+                            <!-- <li><a href="}" >All Reports</a></li> -->
+                        </ul>
+    
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+	
+	<header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">
+		
+			
+				<div class="m-header">
+					<a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
+					<a href="#!" class="b-brand">
+						<!-- ========   change your logo hear   ============ -->
+						<img src="../static/images/logo2.svg" alt="" class="logo">
+						<img src="../static/images/logo-icon.png" alt="" class="logo-thumb">
+					</a>
+					<a href="#!" class="mob-toggler">
+						<i class="feather icon-more-vertical"></i>
+					</a>
+				</div>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                       
+                    </ul>
+                    <ul class="navbar-nav ml-auto">
+                        
+                        <li>
+                            <div class="dropdown drp-user">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="feather icon-user"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right profile-notification">
+                                    <div class="pro-head">
+                                        <!-- <img src="static/images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image"> -->
+                                        <span>ABC</span>
+                                        <a href="{{ url_for('index') }}" class="dud-logout" title="Logout">
+                                            <i class="feather icon-log-out"></i>
+                                        </a>
+                                    </div>
+                                    <!-- <ul class="pro-body">
+                                        <li><a href="user-profile.html" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
+                                        <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
+                                        <li><a href="auth-signin.html" class="dropdown-item"><i class="feather icon-lock"></i> Lock Screen</a></li>
+                                    </ul> -->
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+	</header>
+    <section class="pcoded-main-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Add User Details</h5>
+                            
+                        </div>
+                        <div class="card-body">
+                            <!-- <h5>Form controls</h5>
+                            <hr> -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="fullname">Full Name</label>
+                                            <input type="text" class="form-control" id="fullname" aria-describedby="emailHelp" placeholder="Enter email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email address</label>
+                                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputPassword1">Password</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                        </div>
+                                        <!-- <div class="form-group form-check">
+                                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                        </div> -->
+                                        <button type="submit" class="btn  btn-primary">Submit</button>
+                                        <button type="reset" class="btn btn-secondary">Cancel</button>
+                                    <!-- </form> -->
+                                </div>
+                                <div class="col-md-6">
+                                    <!-- <form> -->
+                                        <div class="form-group">
+                                            <label for="username">User Name</label>
+                                            <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="role">Role</label>
+                                            <!-- <input type="text" id="role" class="form-control" placeholder="Text"> -->
+                                            <select class="form-control" id="role">
+                                                <option value="">Select Role</option>
+                                                <option value="electrician">Electrician</option>
+                                                <option value="plumber">Plumber</option>
+                                                <option value="admin">Admin</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Departments">Department</label>
+                                            <select class="form-control" id="Departments">
+                                                <option value="">Select Department</option>
+                                                <option value="electrical department">Electrical Department</option>
+                                                <option value="mechanical department">Mechanical Department</option>
+                                                <option value="water and waste department">Water and Waste Department</option>
+                                                <option value="building services and amenities">Building Services and Amenities</option>
+                                                <option value="security system">Security System</option>
+                                                <!-- <option>5</option> -->
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-xl-12">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>User Details</h5>
+                            <input type="text" id="searchInput" placeholder="Search..." class="form-control" style="width: 200px; display: inline-block; float: right; margin-left: 10px;">
+                            <!-- <span class="d-block m-t-5">use class <code>table-striped</code> inside table element</span> -->
+                        </div>
+                        <div class="card-body table-border-style">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Username</th>
+                                            <th>Email</th>
+                                            <th>Role</th>
+                                            <th>Department</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Mark</td>
+                                            <td>Mark@email.com</td>
+                                            <td>Electrician</td>
+                                            <td>Electrical System</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Antony</td>
+                                            <td>Antony@email.com</td>
+                                            <td>Mechanic</td>
+                                            <td>Mechanical System</td>
+                                        </tr>
+                                        <tr>
+                                            <td>William</td>
+                                            <td>William@email.com</td>
+                                            <td>Electrician</td>
+                                            <td>Electrical System</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nick</td>
+                                            <td>Nick@email.com</td>
+                                            <td>Plumber</td>
+                                            <td>Plumbing System</td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                                <div id="pagination" class="d-flex justify-content-end mt-3">
+                                    <ul class="pagination">
+                                        <li class="page-item"><a class="page-link" href="#" id="prevPage" aria-label="Previous">&laquo;</a></li>
+                                        <!-- Page number buttons will be generated dynamically -->
+                                        <li class="page-item"><a class="page-link" href="#" id="nextPage" aria-label="Next">&raquo;</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../static/js/vendor-all.min.js"></script>
+    <script src="../static/js/plugins/bootstrap.min.js"></script>
+    <script src="../static/js/ripple.js"></script>
+    <script src="../static/js/pcoded.min.js"></script>
+    </body>
+</html>
